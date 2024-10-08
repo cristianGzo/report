@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Roboto", sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  .container {
+      width: 400px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 3px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+      text-align: center;
+      color: #333;
+  }
+  
+  .form {
+      padding: 10px;
+  }
+  
+  .form__usuario,
+  .form__clave {
+      width: 100%;
+      margin-bottom: 20px;
+      position: relative;
+  }
+  
+  .usuario,
+  .clave {
+      width: 100%;
+      padding: 10px 15px;
+      border: none;
+      outline: none;
+      border-bottom: solid #222 2px;
+  }
+  
+  .ver_clave {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      cursor: pointer;
+      font-size: 20px;
+  }
+  
+  .boton {
+      background: green;
+      padding: 15px 25px;
+      color: white;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+  }
+  
+  .boton:hover {
+      background: rgb(2, 117, 2);
+  }
+  
+  .error {
+      color: red;
+      text-align: center;
+      margin-top: 10px;
+  }
+  
+
+  
