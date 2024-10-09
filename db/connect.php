@@ -7,8 +7,10 @@ $pass = "";
 
 $dsn = "Driver={SQL Server};Server=$serverName;Database=$database;";
 
-$conn = odbc_connect($dsn, $user, $pass);
-if (!$conn) {
+function getConnection(){
+    $conn = odbc_connect($dsn, $user, $pass);
+    if (!$conn) {
     die("Error de conexión: " . odbc_errormsg());
+    }
 }
 ?>
