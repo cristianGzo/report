@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../asset/report.css">
+    <link rel="stylesheet" href="/report/asset/report.css">
     <script src="https://kit.fontawesome.com/03a89292db.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -14,16 +14,20 @@
             <a href="../controller/AuthController.php?action=logout">Cerrar sesión</a>
         </div>
         
-        <!-- Filter -->
+        
         <form method="GET" action="">
-        <?php
-            $year = isset($year) ? $year : ''; // Valor predeterminado
-        ?>
-            <input type="text" name="YEAR" placeholder="Filtrar por anio" value="<?php echo htmlspecialchars($year); ?>">
+            <input type="text" name="YEAR" placeholder="Filtrar por año" value="<?php echo isset($_GET['YEAR']) ? htmlspecialchars($_GET['YEAR']) : ''; ?>">
             <button type="submit">Buscar</button>
         </form>
 
-        <!-- Table -->
+        
+        <?php if (isset($errorMessage)): ?>
+            <div class="error-message" style="color: red;">
+                <?php echo htmlspecialchars($errorMessage); ?>
+            </div>
+        <?php endif; ?>
+
+       
         <table>
             <thead>
                 <tr>
@@ -37,9 +41,9 @@
                     <?php foreach ($results as $result): ?>
                         <tr>
                             <td><?php echo htmlspecialchars($result['ID']); ?></td>
-                            <td><?php echo htmlspecialchars($result['NAME']); ?></td>
-                            <td><?php echo htmlspecialchars($result['DATE']); ?></td>
-                            <td><?php echo htmlspecialchars($result['category']); ?></td>
+                            <td><?php echo htmlspecialchars($result['Nombre']); ?></td>
+                            <td><?php echo htmlspecialchars($result['FechaNacimiento']); ?></td>
+                            <td><?php echo htmlspecialchars($result['Cargo']); ?></td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>

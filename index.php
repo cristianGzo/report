@@ -1,12 +1,16 @@
 <?php
-    require_once 'controllers/AuthController.php';
-    require_once 'controllers/reportController.php';
-    require_once 'db.php';
+    require_once 'controller/AuthController.php';
+    require_once 'controller/reportController.php';
+    require_once 'db/connect.php';
 
 $conn = getConnection();
 
-$authController = new AuthController($conn);
 $reportController = new ReportController($conn);
+$authController = new AuthController($conn);
+
+if (isset($_GET['action']) && $_GET['action'] === 'report') {
+    $reportController->table();
+}
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'login') {
@@ -16,9 +20,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 }
 
 
-
-if (isset($_GET['action']) && $_GET['action'] === 'report') {
-    $reportController->table();
-}
     
 ?>
